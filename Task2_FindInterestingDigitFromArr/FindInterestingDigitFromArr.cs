@@ -52,8 +52,8 @@ void PrintInteresNumbers(int[,] mass)
             int sumOfDigit = 0;
             while (numberFromMass > 0)
             {
-                sumOfDigit += numberFromMass % 10;
-                numberFromMass /= 10;
+                sumOfDigit += numberFromMass % 10; // получаем последнюю цифру от числа под индексом [i,j] и прибовляем к сумме
+                numberFromMass /= 10;   // укарачиваем число на ту же цифру что прибавили , например было 407 --> 40
             }
             if (sumOfDigit % 2 == 0)
             {

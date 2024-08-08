@@ -26,22 +26,42 @@
 
 PrintMatrix(picture);
 
+int[,] copyStandartArr = (int[,])picture.Clone();
+FillImage(12,12);
+PrintMatrix(copyStandartArr);
+
 void PrintMatrix(int[,] matr)
 {
-    for (int i = 0; i < picture.GetLength(0); i++)
+    for (int i = 0; i < matr.GetLength(0); i++)
     {
-        for (int j = 0; j < picture.GetLength(1); j++)
+        for (int j = 0; j < matr.GetLength(1); j++)
         {
             if (matr[i, j] == 0)
             {
                 Console.Write(" ");
             }
             else
-            {
-                Console.Write($"{picture[i, j]}");
+            { 
+                Console.Write($"{matr[i, j]}");
             }
             
         }
         Console.WriteLine();
     }
 }
+
+
+
+void FillImage(int row, int columns)
+{
+    if (row < 0 || row >= copyStandartArr.GetLength(0) || columns < 0 || columns >= copyStandartArr.GetLength(1)) return;
+    if (copyStandartArr[row, columns] == 0)
+    {
+        copyStandartArr[row, columns] = 1;
+        FillImage(row - 1, columns);
+        FillImage(row, columns - 1);
+        FillImage(row +1, columns );
+        FillImage(row, columns + 1);
+    }
+}
+
