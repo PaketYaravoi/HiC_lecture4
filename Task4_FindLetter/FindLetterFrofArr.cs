@@ -14,7 +14,7 @@ string GetLetterFromString(string str)
 
     foreach (char s in str)
     {
-        if (char.IsAsciiLetter(s) == true)
+        if (char.IsAsciiLetter(s) == true) // использование внутреннего метода Ascii поиск в таблице Аски , символов-букв
         {
             result += s; // если компелятор увидит что к строке мы пытаемся прибавить(+) символ , ругаться он не будет , и првильно все склеит
         }
